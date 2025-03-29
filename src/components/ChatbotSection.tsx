@@ -10,7 +10,7 @@ const ChatbotSection = () => {
   const [chat, setChat] = useState<{role: string, content: string}[]>([
     {
       role: 'bot',
-      content: 'Hello! I'm your RGPV PYQ Quest assistant. Ask me about any previous year questions, subjects, or topics.'
+      content: "Hello! I'm your RGPV PYQ Quest assistant. Ask me about any previous year questions, subjects, or topics."
     }
   ]);
 
