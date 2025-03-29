@@ -1,13 +1,13 @@
 
 import React, { useEffect } from 'react';
-import HeroSection from '@/components/HeroSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import PopularPapers from '@/components/PopularPapers';
-import SubjectsSection from '@/components/SubjectsSection';
-import ChatbotSection from '@/components/ChatbotSection';
-import TestimonialSection from '@/components/TestimonialSection';
-import CTASection from '@/components/CTASection';
 import Layout from '@/components/Layout';
+import Hero from '@/components/landing/Hero';
+import Features from '@/components/landing/Features';
+import PopularPapers from '@/components/landing/PopularPapers';
+import ResourcesSection from '@/components/landing/ResourcesSection';
+import ChatbotPreview from '@/components/landing/ChatbotPreview';
+import Testimonials from '@/components/landing/Testimonials';
+import CallToAction from '@/components/landing/CallToAction';
 import gsap from 'gsap';
 
 const HomePage = () => {
@@ -31,7 +31,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      {/* Preloader (simple fade out animation) */}
+      {/* Preloader */}
       <div className="preloader fixed inset-0 bg-white z-50 flex items-center justify-center">
         <img 
           src="/lovable-uploads/9b456c4d-dd8d-4859-ba10-c002596bb6b6.png" 
@@ -40,15 +40,15 @@ const HomePage = () => {
         />
       </div>
       
-      {/* Page content */}
-      <div className="page-content">
-        <HeroSection />
-        <FeaturesSection />
+      {/* Main content */}
+      <div className="landing-page">
+        <Hero />
+        <Features />
         <PopularPapers />
-        <SubjectsSection />
-        <ChatbotSection />
-        <TestimonialSection />
-        <CTASection />
+        <ResourcesSection />
+        <ChatbotPreview />
+        <Testimonials />
+        <CallToAction />
       </div>
     </Layout>
   );
