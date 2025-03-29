@@ -35,6 +35,15 @@ const HeroSection = () => {
         delay: 0.8,
         ease: 'back.out(1.5)'
       });
+      
+      // Animation for the university image
+      gsap.from('.university-building', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: 'power2.out'
+      });
     }, heroRef);
     
     return () => ctx.revert();
@@ -113,6 +122,18 @@ const HeroSection = () => {
             <Button className="bg-rgpv-dark hover:bg-rgpv-dark/90 text-white rounded-full px-6 py-6 text-lg">
               Chat with AI
             </Button>
+          </div>
+        </div>
+        
+        {/* University Building Image */}
+        <div className="mt-16 mx-auto max-w-4xl university-building rounded-xl overflow-hidden shadow-xl">
+          <img 
+            src="/lovable-uploads/18aed785-6b01-4e2a-be54-ad5f168df17c.png" 
+            alt="RGPV University Building" 
+            className="w-full h-auto object-cover"
+          />
+          <div className="bg-rgpv-dark text-white p-3 text-center">
+            <p>Rajiv Gandhi Proudyogiki Vishwavidyalaya - Main Campus</p>
           </div>
         </div>
       </div>

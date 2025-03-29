@@ -50,6 +50,25 @@ const SubjectsSection = () => {
     }
   ];
   
+  const collegeLogos = [
+    {
+      src: "/lovable-uploads/06c7ccde-503b-4d6e-832f-046dc3f1740f.png",
+      alt: "LNCT University"
+    },
+    {
+      src: "/lovable-uploads/fd9176da-5e45-4dd1-baab-0573b60e868a.png",
+      alt: "LNCT Group of Colleges"
+    },
+    {
+      src: "/lovable-uploads/7b7170aa-1a3f-41a4-b7a2-3f7110baeed0.png",
+      alt: "Lakshmi Narain College of Technology"
+    },
+    {
+      src: "/lovable-uploads/b8e3fbc9-c06a-4edf-b586-000e2256830b.png",
+      alt: "RGPV Logo"
+    }
+  ];
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animation for the heading
@@ -74,6 +93,18 @@ const SubjectsSection = () => {
           start: 'top 75%',
         }
       });
+      
+      // Animation for college logos
+      gsap.from('.college-logo', {
+        y: 15,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.college-logos',
+          start: 'top 80%',
+        }
+      });
     }, sectionRef);
     
     return () => ctx.revert();
@@ -91,7 +122,7 @@ const SubjectsSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 subjects-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 subjects-grid mb-12">
           {subjects.map((subject, index) => (
             <div 
               key={index} 
@@ -109,10 +140,25 @@ const SubjectsSection = () => {
           ))}
         </div>
         
-        <div className="text-center mt-10">
+        <div className="text-center mb-10">
           <Button className="bg-rgpv-dark hover:bg-rgpv-dark/90 text-white rounded-full px-6">
             View All Subjects <ChevronRight className="ml-2 w-4 h-4" />
           </Button>
+        </div>
+        
+        <div className="mt-16">
+          <h3 className="text-xl font-semibold text-center mb-8">Affiliated Colleges & Universities</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 college-logos">
+            {collegeLogos.map((logo, index) => (
+              <div key={index} className="college-logo bg-white p-4 rounded-lg shadow-md flex items-center justify-center h-28">
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt} 
+                  className="max-h-20 max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

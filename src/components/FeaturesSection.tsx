@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Search, BookOpen, Download, Calendar } from 'lucide-react';
+import { Search, BookOpen, Download, Calendar, Image } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,6 +30,18 @@ const FeaturesSection = () => {
         stagger: 0.2,
         scrollTrigger: {
           trigger: '.features-grid',
+          start: 'top 75%',
+        }
+      });
+      
+      // Animation for university image
+      gsap.from('.university-image', {
+        scale: 0.9,
+        opacity: 0,
+        duration: 1,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: '.university-image',
           start: 'top 75%',
         }
       });
@@ -73,7 +85,7 @@ const FeaturesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 features-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 features-grid mb-12">
           {features.map((feature, index) => (
             <div 
               key={index} 
@@ -84,6 +96,17 @@ const FeaturesSection = () => {
               <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-12 university-image rounded-xl overflow-hidden shadow-xl">
+          <img 
+            src="/lovable-uploads/031731be-e52e-4b1f-8ed6-a159d0a1a7ae.png" 
+            alt="RGPV University Campus" 
+            className="w-full h-auto object-cover"
+          />
+          <div className="bg-rgpv-dark text-white p-4 text-center">
+            <p className="text-lg">Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal</p>
+          </div>
         </div>
       </div>
     </div>
