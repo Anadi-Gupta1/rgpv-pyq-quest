@@ -2,11 +2,6 @@
 import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Hero from '@/components/landing/Hero';
-import Features from '@/components/landing/Features';
-import PopularPapers from '@/components/landing/PopularPapers';
-import ResourcesSection from '@/components/landing/ResourcesSection';
-import ChatbotPreview from '@/components/landing/ChatbotPreview';
-import Testimonials from '@/components/landing/Testimonials';
 import CallToAction from '@/components/landing/CallToAction';
 import gsap from 'gsap';
 
@@ -43,11 +38,6 @@ const HomePage = () => {
       {/* Main content */}
       <div className="landing-page">
         <Hero />
-        <Features />
-        <PopularPapers />
-        <ResourcesSection />
-        <ChatbotPreview />
-        <Testimonials />
         <CallToAction />
       </div>
     </Layout>
