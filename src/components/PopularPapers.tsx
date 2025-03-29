@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, ArrowRight, Eye, FileText } from 'lucide-react';
+import { Download, ArrowRight, Eye, FileText, ExternalLink } from 'lucide-react';
 import gsap from 'gsap';
 
 const PopularPapers = () => {
@@ -58,6 +58,21 @@ const PopularPapers = () => {
     }
   ];
   
+  const externalLinks = [
+    {
+      title: "RGPV B.Tech Grading System & Question Papers",
+      url: "https://www.rgpvnotes.in/btech/grading-system-old/qp/",
+    },
+    {
+      title: "B.Tech CSE Question Papers",
+      url: "https://www.rgpvonline.com/btech-cse-question-papers.html#list",
+    },
+    {
+      title: "RGPV First Year Resources",
+      url: "https://www.rgpvonline.com/rgpv-first-year.html#list",
+    }
+  ];
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animation for the heading
@@ -79,6 +94,17 @@ const PopularPapers = () => {
         stagger: 0.1,
         scrollTrigger: {
           trigger: '.papers-grid',
+          start: 'top 75%',
+        }
+      });
+      
+      // Animation for external links
+      gsap.from('.external-links-section', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.external-links-section',
           start: 'top 75%',
         }
       });
@@ -166,6 +192,38 @@ const PopularPapers = () => {
           <Button className="bg-rgpv-dark hover:bg-rgpv-dark/90 text-white rounded-full px-6">
             View All Papers <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
+        </div>
+        
+        {/* Add external links section */}
+        <div className="mt-20 external-links-section bg-rgpv-cream p-8 rounded-xl shadow-md">
+          <h3 className="text-2xl font-bold text-center mb-6 text-rgpv-dark">
+            Explore External RGPV Resources
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {externalLinks.map((link, index) => (
+              <a 
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="bg-white hover:bg-rgpv-dark hover:text-white transition-colors duration-300 p-6 rounded-lg shadow-md h-full flex items-center justify-between">
+                  <h4 className="font-medium">{link.title}</h4>
+                  <ExternalLink className="w-5 h-5 ml-2 flex-shrink-0" />
+                </div>
+              </a>
+            ))}
+          </div>
+          
+          <div className="mt-8 text-center">
+            <img 
+              src="/lovable-uploads/81d63435-f36a-431a-a4ea-d651001f74ab.png" 
+              alt="RGPV Resources" 
+              className="mx-auto max-w-full rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </div>
     </div>
